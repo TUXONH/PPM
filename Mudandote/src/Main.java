@@ -22,6 +22,7 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
+   Altas UsuaA = new Altas();
     public Main() {
         initComponents();
     }
@@ -63,7 +64,7 @@ public class Main extends javax.swing.JFrame {
         jMenu20 = new javax.swing.JMenu();
         jMenu21 = new javax.swing.JMenu();
         jMenu22 = new javax.swing.JMenu();
-        jMenu23 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -149,8 +150,13 @@ public class Main extends javax.swing.JFrame {
         jMenu22.setText("Ver");
         jMenu21.add(jMenu22);
 
-        jMenu23.setText("Agregar");
-        jMenu21.add(jMenu23);
+        jMenuItem1.setText("Agregar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu21.add(jMenuItem1);
 
         jMenuBar1.add(jMenu21);
 
@@ -193,6 +199,14 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        UsuaA.show();
+        
+        UsuaA.setLocationRelativeTo(null);
+        this.hide();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,13 +291,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu20;
     private javax.swing.JMenu jMenu21;
     private javax.swing.JMenu jMenu22;
-    private javax.swing.JMenu jMenu23;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
