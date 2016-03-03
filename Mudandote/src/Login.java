@@ -1,3 +1,11 @@
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,9 +21,12 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    conexion con;
     Main form = new Main();
     public Login() {
         initComponents();
+         con= new conexion();
+        con.getConnection();
     }
 
     /**
@@ -90,8 +101,30 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        form.setVisible(true);
-        this.hide();
+       
+        try {
+              PreparedStatement   pstm = (PreparedStatement)
+              con.getConnection().prepareStatement("SELECT nombre_usuario,password from catusuarios WHERE nombre_usuario='"+jTextField1.getText()+"'and password='"+jTextField2.getText()+"'");
+              ResultSet res = pstm.executeQuery();
+              
+              if(res.next()){ 
+                form.setVisible(true);
+                this.hide();
+              }
+              else
+              {
+                JOptionPane.showMessageDialog(null,"Error de contraseña o usuario");
+                jTextField1.setText("");
+                jTextField2.setText("");
+              }
+             
+       
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+             System.out.println("No hay ese usuario");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
