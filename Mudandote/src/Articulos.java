@@ -8,6 +8,8 @@
  *
  * @author josegonzalez
  */
+
+
 public class Articulos extends javax.swing.JFrame {
 
     /**
