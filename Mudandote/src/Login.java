@@ -22,7 +22,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     conexion con;
-    Main form = new Main();
+    Altas form = new Altas();
     public Login() {
         initComponents();
          con= new conexion();
